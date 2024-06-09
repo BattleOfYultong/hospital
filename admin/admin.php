@@ -82,7 +82,7 @@ if (isset($_SESSION['Email'])) {
             </li>
 
              <li>
-                <a href="request.php">
+                <a href="salaries.php">
                     <span>Requests</span>
                 </a>
             </li>

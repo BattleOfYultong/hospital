@@ -71,7 +71,7 @@ if (isset($_SESSION['Email'])) {
                 </a>
             </li>
             <li>
-                <a href="crud.php">
+                <a href="salaries.php">
                     <span>Salaries</span>
                 </a>
             </li>
@@ -180,7 +180,7 @@ if (isset($_SESSION['Email'])) {
                                         id=""
                                         aria-describedby="helpId"
                                         placeholder=""
-                                         value="<?php echo $row['Concern']; ?>"
+                                        value="<?php echo $row['Concern']; ?>"
                                          
                                          readonly />
                                   

@@ -128,12 +128,12 @@ if (isset($_GET['loginID'])) {
                 </a>
             </li>
             <li>                
-                <a href="../crud.php">
+                <a href="../salaries.php">
                     <span>Salaries</span>
                 </a>
             </li>
             <li>
-                <a href="request.php">
+                <a href="../request.php">
                     <span>Requests</span>
                 </a>
             </li>

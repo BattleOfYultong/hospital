@@ -77,7 +77,7 @@ if (isset($_SESSION['Email'])) {
 
 
                <li>
-                <a href="crud.php">
+                <a href="salaries.php">
                     <span>Salaries</span>
                 </a>
             </li>

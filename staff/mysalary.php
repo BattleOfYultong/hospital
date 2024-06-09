@@ -61,15 +61,15 @@ if (isset($_SESSION['Email'])) {
 
         <ul>
             <li >
-                <a href="">
-                    <span class="li-act">Assigned Patients</span>
+                <a href="staff.php">
+                    <span >Assigned Patients</span>
                 </a>
             </li>
 
            
                <li>
                 <a href="mysalary.php">
-                    <span>My Salary</span>
+                    <span class="li-act">My Salary</span>
                 </a>
             </li>
 
@@ -94,60 +94,25 @@ if (isset($_SESSION['Email'])) {
         <section>
              
             <div class="main-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                RequestID
-                            </th>
-                            <th>
-                               Name
-                            </th>
-                            <th>
-                               Concern
-                            </th>
-                            <th>
-                               Action
-                            </th>
-                        </tr>
-                    </thead>
+            <?php
+                 $sql = "SELECT *FROM salary_tbl WHERE loginID = $SessionloginID ";
+                 $result = mysqli_query($connections, $sql);
+             
+                 if ($result && mysqli_num_rows($result) > 0) {
+                     $row = mysqli_fetch_assoc($result);
+                    $salary = $row['Salary'];
+                 }       
 
-                    <tbody>
-                        <?php
-
-                include '../php/config.php';
-
-
-                        $sql = "SELECT request_tbl.requestID, request_tbl.requesterName, request_tbl.Concern, COALESCE(account_tbl.Name, 'Not Assigned') AS appointedDoctor 
-                                FROM request_tbl 
-                                LEFT JOIN account_tbl ON request_tbl.requestDoctor = account_tbl.loginID
-                                WHERE requestDoctor = '$SessionloginID'";
-
-                        $result = $connections->query($sql);
-
-                        if (!$result) {
-                            die("Invalid Query: " . $connections->error);
-                        }
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $requestID = $row['requestID'];
-                                echo '
-                                <tr>
-                                    <td>'.$row['requestID'].'</td>
-                                    <td>'.$row['requesterName'].'</td>
-                                    <td>'.$row['Concern'].'</td>
-                                    <td class="d-flex gap-2 justify-content-center align-items-center">
-                                        <button type="button" class="btn btn-danger" onclick="confirmDelete('.$requestID.')">Delete</button>
-                                    </td>
-                                </tr>';
-                            }
-                        } else {
-                            echo "<tr><td colspan='4'>You don't have assigned patients yet</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                ?>
+                
+                <div class="container-md w-25 rounded bg-primary d-flex justify-content-center align-items-center gap-2">
+                        
+                            <h1 class="text-white"><?php echo "$salary" ?></h1>
+                            <h2>
+                            <i class="fa-solid fa-peso-sign text-white"></i>
+                            </h2>
+                        
+                    </div>
 
             </div>
 

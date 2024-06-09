@@ -126,13 +126,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </a>
             </li>
             <li>
-                <a href="request.php">
+                <a href="../request.php">
                     <span>Requests</span>
                 </a>
             </li>
             <li>
-                <a href="crud.php">
-                    <span>Payments</span>
+                <a href="../salaries.php">
+                    <span>Salaries</span>
                 </a>
             </li>
             <li>
